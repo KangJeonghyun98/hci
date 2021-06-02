@@ -59,31 +59,84 @@ if (this.transform.position.y > target1.transform.position.y - 0.5f &
     this.transform.position.x > target1.transform.position.x - 1.0f &
     this.transform.position.x < target1.transform.position.x + 1.0f &
     fingers[1].IsExtended == false){
-    	SceneManager.LoadScene("How to play");
+    	SceneManager.LoadScene("How to play"); // 씬 전환
         }
 ```
 --------
-
-#### 2.4.2 Stage 1 미션
+#### 2.4.2 Stage 1 미션 주요 움직임
+- 미션에서 사용되는 주요 움직임만 기재하였음.
 
 `hand.ParmVelocity` : The speed and movement direction of the palm in millimeters per second.
 
 `hands[0].PalmVelocity.y' : y축에 대해 손 움직임의 속도를 측정.
 
--3500 이하일 때 
+-3500 이하일 때 'full' object의 이미지가 "Sprites/stage1" 폴더에 있는 이미지 요소로 변경
 ```c#
 if (hands[0].PalmVelocity.y < -3500){
 	SpriteRenderer spriteR = full.GetComponent<SpriteRenderer>();
 	Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/stage1");
 	spriteR.sprite = sprites[0];
-        Invoke("Scenechange", 3);
+        Invoke("Scenechange", 3); // 3초 뒤 Scenechange 함수 실행
+	}
+```
+--------
+#### 2.4.3 Stage 2 미션 주요 움직임
+
+`hands[0].PalmVelocity.z' : z축에 대해 손 움직임의 속도를 측정.
+
+-2500 이하일 때 'waste' object의 이미지가 "Sprites/stage2" 폴더에 있는 이미지 요소로 변경
+```c#
+if (hands[0].PalmVelocity.z < -2500){
+	SpriteRenderer spriteR = waste.GetComponent<SpriteRenderer>();
+	Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/stage2");
+	spriteR.sprite = sprites[0];
+        Invoke("Scenechange", 3); // 3초 뒤 Scenechange 함수 실행
+	}
+```
+--------
+#### 2.4.4 Stage 3, 4 미션 주요 움직임
+
+'cutter' object가 'rabel' object 위에 위치하면서 손을 펴면 
+'rabel'의 이미지가 "Sprites/norabel" 폴더의 이미지로 변경됨.
+
+- flag로 한 번만 생성될 수 있도록 설정하지 않으면 무한 copy됨. 
+
+```c#
+if (rabel.transform.position.y > cutter.transform.position.y - 1.0f &
+    rabel.transform.position.y < cutter.transform.position.y + 1.0f &
+    rabel.transform.position.x > cutter.transform.position.x - 1.0f &
+    rabel.transform.position.x < cutter.transform.position.x + 1.0f &
+    fingers[1].IsExtended == true){
+    	SpriteRenderer spriteR = rabel.GetComponent<SpriteRenderer>();
+	Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/norabel");
+	spriteR.sprite = sprites[0];
+        
+	if (flag == 0){ // object가 한 번만 생성될 수 있도록 함. 
+		Invoke("Vinyl", 0.01f); // Vinyl 함수 실행
+        }
+      	Invoke("Scenechange", 5);
+}
+
+void Vinyl(){
+	Instantiate(vinyl, new Vector3 (0.8f, -1.6f, 0), Quaternion.identity); // object 생성 함수: Instantiate(object, location, rotation)
+        flag = 1;
 }
 ```
+--------
+#### 2.4.5 Stage 5 미션 주요 움직임
 
+검지 폄 + 중지, 약지 구부리면 손 이미지를 "Sprites/stage5" 폴더의 이미지로 변경
 
-
-
-
+```c#
+if (fingers[1].IsExtended == true &
+    fingers[2].IsExtended == false &
+    fingers[3].IsExtended == false) {
+    	SpriteRenderer spriteR = gameObject.GetComponent<SpriteRenderer>();
+	Sprite[] sprites = Resources.LoadAll<Sprite>("Sprites/stage5");
+	spriteR.sprite = sprites[0];
+        }
+```
+--------
 
 
 ## 3. Discussion
