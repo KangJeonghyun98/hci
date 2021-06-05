@@ -8,6 +8,41 @@
 ## 2. Main Contents
 ### 2.1 Scenario
 ### 2.2 Prototype
+#### 2.2.1 첫 화면
+첫 화면에서 How to Play 버튼을 통해 전체 게임의 흐름을 알 수 있고, Start 버튼을 통해 Stage 선택 화면으로 이동한다. 
+![First](./Image/001.png)
+
+#### 2.2.2 How to Play
+게임의 전체적인 진행 순서를 설명한다. 
+Start 버튼을 통해 Stage 선택 화면으로 이동한다. 
+![HowtoPlay](./Image/002.png).
+
+#### 2.2.3 Stage 선택
+사용자가 각 스테이지를 선택하여 플레이 할 수 있다. 
+![ChooseStage](./Image/003.png)
+
+#### 2.2.4 Stage 1 ~ 5 : 도구 선택 
+각 스테이지의 쓰레기를 분리수거 하기 위한 도구를 선택한다.
+![StageTool](./Image/004.png)
+
+#### 2.2.5 Stage 1 ~ 5 : 분리수거를 위한 전처리
+각 스테이지의 쓰레기를 분리수거 하기 위한 행동을 한다. 
+
+
+#### 2.2.6 Stage 1 ~ 5 : 쓰레기통 선택
+각 스테이지의 쓰레기를 버리기 위한 쓰레기통을 선택한다. 
+![StageBin](./Image/004-1.png)
+![StageClear](./Image/004-2.png)
+
+#### 2.2.7 잘못된 선택지를 고른 경우
+잘못된 선택지를 고른 경우 에러 화면이 뜨고, Back to Game 버튼을 누르면 이전 화면으로 되돌아간다. 
+![StageBin](./Image/009.png)
+
+#### 2.2.8 게임 종료
+모든 스테이지를 완료했으면, 스테이지를 완료했다는 안내 화면을 띄운다.
+Go to Main 버튼을 통해 첫 화면으로 돌아가거나, Quit 버튼을 통해 게임을 종료한다.
+![Clear](./Image/010.png)
+
 
 
 ### 2.3 User Test
