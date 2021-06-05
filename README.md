@@ -10,12 +10,12 @@
 ### 2.2 Prototype
 #### 2.2.1 첫 화면
 첫 화면에서 How to Play 버튼을 통해 전체 게임의 흐름을 알 수 있고, Start 버튼을 통해 Stage 선택 화면으로 이동한다. 
-<img src="./Image/001.png", width="50%" height="50%">
+![First](./Image/001.png)
 
 #### 2.2.2 How to Play
 게임의 전체적인 진행 순서를 설명한다. 
 Start 버튼을 통해 Stage 선택 화면으로 이동한다. 
-![HowtoPlay](./Image/002.png).
+![HowtoPlay](./Image/002.png)
 
 #### 2.2.3 Stage 선택
 사용자가 각 스테이지를 선택하여 플레이 할 수 있다. 
